@@ -23,6 +23,10 @@ gem 'puma', '~> 3.0'
 # making cross-origin AJAX possible
 # gem 'rack-cors'
 
+group :mysql, optional: true do
+  gem 'mysql2'
+end
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'

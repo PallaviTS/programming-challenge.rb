@@ -1,29 +1,19 @@
-# README
+# ADIB Xpress Finance
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
 
-Things you may want to cover:
+### Project Setup
 
-* Ruby version
+```sh
+# install system dependencies via Homebrew
+$ brew install mysql
+$ brew install ruby-build rbenv rbenv-readline rbenv-ctags
 
-* System dependencies
+# install the local ruby version and do the setup
+$ bin/setup
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-## Git Hooks (powered by [overcommit][2])
+### Git Hooks (powered by [overcommit](https://github.com/brigade/overcommit))
 
 You have the run the following command after cloning this repository to activate the Git Hooks:
 
