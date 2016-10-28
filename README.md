@@ -42,3 +42,13 @@ This project follows the [gitflow](https://github.com/nvie/gitflow) process.
 $ brew install git-flow
 $ git flow init -d
 ```
+
+### Static Code Analysis
+
+The project features [RubyCritic](https://github.com/whitesmith/rubycritic). If you want to run a codeclimate-esque report, the execute the following:
+
+```sh
+$ bundle exec rubycritic
+```
+
+**TODO**: This may be included when running CI
