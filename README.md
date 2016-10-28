@@ -11,6 +11,9 @@ $ brew install ruby-build rbenv rbenv-readline rbenv-ctags
 
 # install the local ruby version and do the setup
 $ bin/setup
+
+# start the project
+$ bin/foreman start
 ```
 
 ### Git Hooks (powered by [overcommit](https://github.com/brigade/overcommit))
