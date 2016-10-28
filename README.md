@@ -10,6 +10,7 @@ $ brew install mysql
 $ brew install ruby-build rbenv rbenv-readline rbenv-ctags
 
 # install the local ruby version and do the setup
+$ bundle install --with mysql # We only use MySQL in development (MS SQL in production)
 $ bin/setup
 
 # start the project
@@ -39,4 +40,5 @@ This project follows the [gitflow](https://github.com/nvie/gitflow) process.
 
 ```sh
 $ brew install git-flow
+$ git flow init -d
 ```
