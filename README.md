@@ -1,10 +1,13 @@
 # ADIB Xpress Finance
 
+This project follows the rules of [12factor.net][1]. Adjust any configuration in its corresponding .env-file, (e.g. `.env.development`).
+
+
 ## Installation
 
 ### Prerequisites
 
-The installation process assumes that you are running on macOS with [homebrew][1] installed.
+The installation process assumes that you are running on macOS with [homebrew][2] installed.
 
 
 ### Project Setup
@@ -23,7 +26,7 @@ $ bin/foreman start
 ```
 
 
-### Git Hooks (powered by [`overcommit`][2])
+### Git Hooks (powered by [`overcommit`][3])
 
 You have the run the following command after cloning this repository to activate the Git Hooks:
 
@@ -43,7 +46,7 @@ This project uses two hooks:
 
 ## Development
 
-This project follows the [gitflow][3] branching model. Also, we broadly follow the [Github Flow][4] with regard to pull-requests and code reviews.
+This project follows the [gitflow][4] branching model. Also, we broadly follow the [Github Flow][5] with regard to pull-requests and code reviews.
 
 ```sh
 $ brew install git-flow
@@ -52,7 +55,7 @@ $ git flow init -d
 
 ### Static Code Analysis
 
-The project features [RubyCritic][5]. If you want to run a codeclimate-esque report, the execute the following:
+The project features [RubyCritic][6]. If you want to run a codeclimate-esque report, the execute the following:
 
 ```sh
 $ bundle exec rubycritic
@@ -61,10 +64,11 @@ $ bundle exec rubycritic
 **TODO**: This may be included when running CI
 
 
-[1]: http://brew.sh/
-[2]: https://github.com/brigade/overcommit
-[3]: https://github.com/nvie/gitflow
-[4]: https://guides.github.com/introduction/flow/
-[5]: https://github.com/whitesmith/rubycritic
+[1]: https://12factor.net
+[2]: http://brew.sh/
+[3]: https://github.com/brigade/overcommit
+[4]: https://github.com/nvie/gitflow
+[5]: https://guides.github.com/introduction/flow/
+[6]: https://github.com/whitesmith/rubycritic
 
 Made with :heart: by Fidor
