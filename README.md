@@ -16,6 +16,7 @@ The installation process assumes that you are running on macOS with [homebrew][2
 # install system dependencies via Homebrew
 $ brew install mysql
 $ brew install ruby-build rbenv rbenv-readline rbenv-ctags
+$ rbenv install `cat .ruby-version`
 
 # install the local ruby version and do the setup
 $ bundle install --with mysql # We only use MySQL in development (MS SQL in production)
