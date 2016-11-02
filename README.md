@@ -28,7 +28,9 @@ $ bin/foreman start
 
 ### Git Hooks (powered by [`overcommit`][3])
 
-You have the run the following command after cloning this repository to activate the Git Hooks:
+In case you bootstrap the project via `bin/setup`, you can skip this. Otherwise, you have the run the following command after cloning this repository to activate the Git Hooks.
+
+There is also a custom commit hook, called `commit-msg`. This will aid the developer with the commit message format. When working on a feature branch (e.g. `feature/ADIB-870-something-awesome`), this hook will add the ticket ID before the actual commit message.
 
 ```sh
 $ bundle exec overcommit --install
