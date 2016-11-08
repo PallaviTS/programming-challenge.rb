@@ -20,4 +20,5 @@
 
 # ignore dotenv files
 .env*
-!.env.sample
+!.env.development.sample
+!.env.test.sample
