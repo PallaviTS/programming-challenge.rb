@@ -1,5 +1,7 @@
 # ADIB Xpress Finance
 
+[![Build Status](https://ci.fidor.intern/fidor/adib_xpress_finance.svg?token=hbT4L9nyCu8oh4p1xYJh)](https://ci.fidor.intern/fidor/adib_xpress_finance)
+
 This project follows the rules of [12factor.net][1]. Adjust any configuration in its corresponding .env-file, (e.g. `.env.development`).
 
 
