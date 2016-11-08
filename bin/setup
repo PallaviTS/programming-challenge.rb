@@ -23,8 +23,8 @@ chdir APP_ROOT do
   system!('bundle exec overcommit --sign commit-msg')
 
   puts "\n== Copying sample files =="
-  unless File.exists?('.env.development')
-    system!('cp .env.development.sample .env.development')
+  unless File.exists?('.env')
+    system!('cp .env.sample .env')
   end
 
   unless File.exist?('config/database.yml')
