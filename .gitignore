@@ -18,7 +18,5 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-# ignore dotenv files
-.env*
-!.env.development.sample
-!.env.test.sample
+# ignore local dotenv files
+.env.local
