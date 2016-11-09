@@ -1,4 +1,11 @@
 language: ruby
 cache: bundler
 
+env:
+  - DB=mysql
+  - DB=sqlserver
+
+before_script:
+  - cp config/ci/.env.$DB.local .env.local
+
 script: bin/rspec
