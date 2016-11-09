@@ -58,6 +58,25 @@ $ brew install git-flow
 $ git flow init -d
 ```
 
+### .env (poweredby [`dotenv`][7])
+
+The project uses `.env`-files for configuration. There is the hierarchy on how they get loded:
+
+```ruby
+# taken from https://github.com/bkeepers/dotenv/blob/master/lib/dotenv/rails.rb
+
+Dotenv.load(
+  root.join(".env.local"),
+  root.join(".env.#{Rails.env}"),
+  root.join(".env")
+)
+```
+
+As a rule:
+* The `.env`-file MUST have every basic configuration defined (this is your starting point when wirking with the repository)
+* The `.env.#{Rails.env}`-files SHALL ONLY have environment specific overrides
+* The `.env.local` may have any configuration needed to run locally
+
 ### Static Code Analysis
 
 The project features [RubyCritic][6]. If you want to run a codeclimate-esque report, the execute the following:
@@ -75,5 +94,6 @@ $ bundle exec rubycritic
 [4]: https://github.com/nvie/gitflow
 [5]: https://guides.github.com/introduction/flow/
 [6]: https://github.com/whitesmith/rubycritic
+[7]: https://github.com/bkeepers/dotenv
 
 Made with :heart: by Fidor
