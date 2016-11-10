@@ -2,12 +2,15 @@ language: ruby
 cache: bundler
 bundler_args: --with $DB
 
+before_script:
+  - cp config/ci/.env.$DB.local .env.local
+
+script: bin/rspec
 
 env:
   - DB=mysql2
   - DB=sqlserver
 
-before_script:
-  - cp config/ci/.env.$DB.local .env.local
-
-script: bin/rspec
+matrix:
+  allow_failures:
+    - DB=sqlserver
