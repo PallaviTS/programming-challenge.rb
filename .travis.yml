@@ -1,8 +1,10 @@
 language: ruby
 cache: bundler
+bundler_args: --with $DB
+
 
 env:
-  - DB=mysql
+  - DB=mysql2
   - DB=sqlserver
 
 before_script:

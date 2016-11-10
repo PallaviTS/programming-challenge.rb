@@ -26,6 +26,12 @@ group :mysql2, optional: true do
   gem 'mysql2', '>= 0.4.5'
 end
 
+group :sqlserver, optional: true do
+  gem 'tiny_tds'
+  gem 'activerecord-sqlserver-adapter',
+      github: 'rails-sqlserver/activerecord-sqlserver-adapter'
+end
+
 group :development, :test do
   gem 'dotenv-rails'
   gem 'foreman'
