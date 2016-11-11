@@ -13,7 +13,7 @@ gem 'foreman'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-group :mysql2, optional: true do
+group :mysql, optional: true do
   gem 'mysql2', '>= 0.4.5'
 end
 
