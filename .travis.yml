@@ -3,8 +3,8 @@ cache: bundler
 bundler_args: --with $DB
 
 before_script:
-  - cp config/ci/.env.$DB.local .env.local
-  - bin/rails db:setup
+  - cp config/travis/.env.$DB.local .env.local
+  - bin/travis db:setup
 
 script: bin/rspec
 
