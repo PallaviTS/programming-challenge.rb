@@ -5,8 +5,8 @@ set -x # echo on
 #
 # @example
 #   bin/docker-build
-#   bin/docker-build sqlserver
 #   bin/docker-build mysql
+#   bin/docker-build sqlserver
 #
 # @example Tag the build
 #   bin/docker-build --tag
@@ -17,15 +17,14 @@ set -x # echo on
 # @example tag and push
 #   bin/docker-build --tag --push
 
-# IMAGE=${IMAGE:-"docker-prod.fidor.intern:5000/fidor/adib_xpress_finance"}
-IMAGE=${IMAGE:-"adib_xpress_finance"}
+IMAGE=${IMAGE:-"unknown"}
 BRANCH=${BRANCH:-"$(git rev-parse --abbrev-ref HEAD | tr / -)"}
 VERSION=${VERSION:-"$(date +%Y%m%d%H%M%S)"}
 
 # build
 docker build \
   -t $IMAGE \
-  --build-arg DB=${1:-sqlserver} \
+  --build-arg DB=${1:-mysql} \
   .
 
 # tag

@@ -16,11 +16,13 @@ chdir APP_ROOT do
   # Add necessary setup steps to this file.
 
   puts '== Installing dependencies =='
-  system! 'gem install bundler --conservative'
+  system!('gem install bundler --conservative')
   system!('bundle install --with ${DB:-mysql}')
 
   system!('bundle exec overcommit --install')
   system!('bundle exec overcommit --sign commit-msg')
+
+  system!('command -v git-flow && git-flow init -d')
 
   puts "\n== Copying sample files =="
   unless File.exists?('.env.local')

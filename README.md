@@ -1,6 +1,6 @@
-# ADIB Xpress Finance
+# Microservice Template
 
-[![Build Status](https://ci.fidor.intern/fidor/adib_xpress_finance.svg?token=hbT4L9nyCu8oh4p1xYJh)](https://ci.fidor.intern/fidor/adib_xpress_finance)
+[![Build Status](https://ci.fidor.intern/fidor/microservice_template.svg?token=hbT4L9nyCu8oh4p1xYJh)](https://ci.fidor.intern/fidor/microservice_template)
 
 This project follows the rules of [12factor.net][1]. Adjust any configuration in its corresponding .env-file, (e.g. `.env.development`).
 
@@ -33,7 +33,7 @@ $ bin/foreman start
 
 In case you bootstrap the project via `bin/setup`, you can skip this. Otherwise, you have the run the following command after cloning this repository to activate the Git Hooks.
 
-There is also a custom commit hook, called `commit-msg`. This will aid the developer with the commit message format. When working on a feature branch (e.g. `feature/ADIB-870-something-awesome`), this hook will add the ticket ID before the actual commit message.
+There is also a custom commit hook, called `commit-msg`. This will aid the developer with the commit message format. When working on a feature branch (e.g. `feature/ABC-870-something-awesome`), this hook will add the ticket ID before the actual commit message.
 
 ```sh
 $ bundle exec overcommit --install
