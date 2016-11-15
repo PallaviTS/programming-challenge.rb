@@ -20,7 +20,7 @@ end
 group :sqlserver, optional: true do
   gem 'tiny_tds'
   gem 'activerecord-sqlserver-adapter',
-      github: 'rails-sqlserver/activerecord-sqlserver-adapter'
+      git: 'https://github.com/rails-sqlserver/activerecord-sqlserver-adapter.git'
 end
 
 group :development, :test do
