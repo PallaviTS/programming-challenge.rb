@@ -3,9 +3,19 @@ set -x # echo on
 
 # Usage
 #
-# bin/docker-build
-# bin/docker-build sqlserver
-# bin/docker-build mysql
+# @example
+#   bin/docker-build
+#   bin/docker-build sqlserver
+#   bin/docker-build mysql
+#
+# @example Tag the build
+#   bin/docker-build --tag
+#
+# @example Push the build to docker repository
+#   bin/docker-build --push
+#
+# @example tag and push
+#   bin/docker-build --tag --push
 
 # IMAGE=${IMAGE:-"docker-prod.fidor.intern:5000/fidor/adib_xpress_finance"}
 IMAGE=${IMAGE:-"adib_xpress_finance"}
@@ -19,9 +29,13 @@ docker build \
   .
 
 # tag
-docker tag $IMAGE $IMAGE:$BRANCH
-docker tag $IMAGE $IMAGE:$BRANCH-$VERSION
+if [[ $@ =~ '--tag' ]]; then
+  docker tag $IMAGE $IMAGE:$BRANCH
+  docker tag $IMAGE $IMAGE:$BRANCH-$VERSION
+fi
 
 # push
-# docker push $IMAGE:${BRANCH}
-# docker push $IMAGE:${BRANCH}-$VERSION
+if [[ $@ =~ '--push' ]]; then
+  docker push $IMAGE:${BRANCH}
+  docker push $IMAGE:${BRANCH}-$VERSION
+fi
