@@ -15,7 +15,7 @@ while true; do
   bootstrap=${bootstrap:-Y}
   echo "=> $bootstrap"
 
-  case $bootstrap in
+  case $bootstrap
     Y)
       break
       ;;
@@ -41,9 +41,30 @@ sed -i '' -e "s/rails_api_template/$database_name/g" config/database.yml
 # Cleanup
 echo "Removing obsolete files..."
 rm $BASH_SOURCE
+rm -rf .git
+rm -rf .git-hooks
 
 echo "Initializing repository..."
-rm -rf .git
 git init .
 git add .
 git commit -m "Birthday"
+
+
+##
+# Setup
+while true; do
+  read -p "Install dependencies? (Y/n)" install
+  install=${install:-Y}
+  echo "=> $install"
+
+  case $install
+    Y)
+      bin/setup
+      break
+      ;;
+    *)
+      echo "Good bye..."
+      exit
+      ;;
+  esac
+done
