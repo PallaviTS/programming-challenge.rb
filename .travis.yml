@@ -4,7 +4,7 @@ bundler_args: --with $DB
 
 before_script:
   - cp config/travis/.env.$DB.local .env.local
-  - bin/travis db:setup
+  - bin/rails db:setup
 
 script: bin/rspec
 
