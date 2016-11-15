@@ -3,14 +3,47 @@
 ##
 # Name the project
 if [[ ! $@ =~ '--skip-name' ]]; then
-  read -p "What's the name of your project? [Microservice] " name
+  read -p "What's the name of your project? (Microservice) " project_name
 fi
-name=${name:-Microservice}
+project_name=${project_name:-Microservice}
+echo "=> $project_name"
 
-sed -i '' -e "s/RailsApiTemplate/$name/g" config/application.rb
-sed -i '' -e "s/RailsApiTemplate/$name/g" README.md
+##
+# Confirm destructive action
+while true; do
+  read -p "Type 'yes' to bootstrap this project (Y/n) " bootstrap
+  bootstrap=${bootstrap:-Y}
+  echo "=> $bootstrap"
 
-name_underscore=$(echo $name | sed -e 's/\([a-z]\)\([A-Z]\)/\1_\2/' | tr '[:upper:]' '[:lower:]')
-sed -i '' -e "s/rails_api_template/$name_underscore/g" config/database.yml
+  case $bootstrap in
+    Y)
+      break
+      ;;
+    *)
+      echo "Exiting..."
+      exit
+      ;;
+  esac
+done
 
+##
+# Execute task
+echo
+echo "Bootstrapping..."
 
+sed -i '' -e "s/RailsApiTemplate/$project_name/g" config/application.rb
+sed -i '' -e "s/RailsApiTemplate/$project_name/g" README.md
+
+database_name=$(echo $project_name | sed -e 's/\([a-z]\)\([A-Z]\)/\1_\2/' | tr '[:upper:]' '[:lower:]')
+sed -i '' -e "s/rails_api_template/$database_name/g" config/database.yml
+
+##
+# Cleanup
+echo "Removing obsolete files..."
+rm $BASH_SOURCE
+
+echo "Initializing repository..."
+rm -rf .git
+git init .
+git add .
+git commit -m "Birthday"
