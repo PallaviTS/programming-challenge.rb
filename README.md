@@ -72,6 +72,17 @@ Dotenv.load(
 )
 ```
 
+### Docker
+
+Install [Docker][8] to your machinae and follow the [verify it][9]. Go to the preferences of Docker under the Advanced panel and add  __docker-prod.fidor.intern:5000__ to the insecure registries list. Now you are ready to go:
+
+```sh
+# You can locally build the image in 2 ways: for sqlserver (default) or mysql
+
+# Read the usage within the script for more info
+$ bin/docker-build
+```
+
 As a rule:
 * The `.env`-file MUST have every basic configuration defined (this is your starting point when wirking with the repository)
 * The `.env.#{Rails.env}`-files SHALL ONLY have environment specific overrides
@@ -95,5 +106,7 @@ $ bundle exec rubycritic
 [5]: https://guides.github.com/introduction/flow/
 [6]: https://github.com/whitesmith/rubycritic
 [7]: https://github.com/bkeepers/dotenv
+[8]: https://docs.docker.com/docker-for-mac/
+[9]: https://docs.docker.com/engine/getstarted/step_one/#/step-3-verify-your-installation
 
 Made with :heart: by Fidor
