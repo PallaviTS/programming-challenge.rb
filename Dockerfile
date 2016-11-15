@@ -14,5 +14,3 @@ RUN rm -rf .bundle && \
       --with $DB \
       --jobs=4 \
       --retry=3
-
-CMD bin/foreman start

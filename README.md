@@ -1,4 +1,4 @@
-# Microservice Template
+# RailsApiTemplate
 
 [![Build Status](https://ci.fidor.intern/fidor/microservice_template.svg?token=hbT4L9nyCu8oh4p1xYJh)](https://ci.fidor.intern/fidor/microservice_template)
 
