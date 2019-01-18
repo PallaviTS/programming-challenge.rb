@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+#
 require 'pathname'
 require 'fileutils'
 include FileUtils
@@ -17,12 +18,14 @@ chdir APP_ROOT do
 
   puts '== Installing dependencies =='
   system!('gem install bundler --conservative')
-  system!('bundle install --with ${DB:-mysql}')
+  system!('bundle install')
 
+  puts '== Configuting git-hooks =='
   system!('bundle exec overcommit --install')
-  system!('bundle exec overcommit --sign commit-msg')
+  system!('bundle exec overcommit --sign')
 
-  system!('command -v git-flow && git-flow init -d')
+  puts '== Configuring git-flow' ==
+  system('command -v git-flow && git-flow init -d')
 
   puts "\n== Copying sample files =="
   unless File.exists?('.env.local')
@@ -34,7 +37,4 @@ chdir APP_ROOT do
 
   puts "\n== Removing old logs and tempfiles =="
   system! 'bin/rails log:clear tmp:clear'
-
-  # puts "\n== Restarting application server =="
-  # system! 'bin/rails restart'
 end

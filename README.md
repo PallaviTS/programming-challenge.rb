@@ -1,16 +1,26 @@
-# RailsApiTemplate
+# Programming Challenge
 
-[![Build Status](https://ci.fidor.intern/fidor/microservice_template.svg?token=hbT4L9nyCu8oh4p1xYJh)](https://ci.fidor.intern/fidor/microservice_template)
+## Objective
 
-This project follows the rules of [12factor.net][1]. Adjust any configuration in its corresponding .env-file, (e.g. `.env.development`).
+**Implement a ToDo-Service** which can be used via a RESTful API.
+For an example frontend application have a look [here](http://todomvc.com/examples/react/).
 
+Key features:
+ * Store ToDo-Items in a database (use any database driver you like, e.g. SQLite)
+ * A ToDo-Item consists of at least a `title` (string, required) and `read` flag
+ * Provide a [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)- and [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)-API-Endpoint for a ToDo-List
+ * Write tests for your API & Models
+ * Write meaningful commit messages
+
+Nice to haves:
+ * [JSON API Spec](http://jsonapi.org/)
+ * Provide a meaningful API documentation
 
 ## Installation
 
 ### Prerequisites
 
-The installation process assumes that you are running on macOS with [homebrew][2] installed.
-
+The installation process assumes that you are running on macOS with [homebrew](http://brew.sh/) installed.
 
 ### Project Setup
 
@@ -21,15 +31,14 @@ $ brew install ruby-build rbenv rbenv-readline rbenv-ctags
 $ rbenv install `cat .ruby-version`
 
 # install the local ruby version and do the setup
-$ bundle install --with mysql # We only use MySQL in development (MS SQL in production)
-$ bin/setup
+$ git clone <path-to-this-git-repository>
+$ bin/bootstrap
 
 # start the project
 $ bin/foreman start
 ```
 
-
-### Git Hooks (powered by [`overcommit`][3])
+### Git Hooks (powered by [`overcommit`](https://github.com/brigade/overcommit))
 
 In case you bootstrap the project via `bin/setup`, you can skip this. Otherwise, you have the run the following command after cloning this repository to activate the Git Hooks.
 
@@ -51,14 +60,14 @@ This project uses two hooks:
 
 ## Development
 
-This project follows the [gitflow][4] branching model. Also, we broadly follow the [Github Flow][5] with regard to pull-requests and code reviews.
+This project follows the [gitflow](https://github.com/nvie/gitflow) branching model. Also, we broadly follow the [Github Flow](https://guides.github.com/introduction/flow/) with regard to pull-requests and code reviews.
 
 ```sh
 $ brew install git-flow
 $ git flow init -d
 ```
 
-### .env (poweredby [`dotenv`][7])
+### .env (poweredby [`dotenv`](https://github.com/bkeepers/dotenv))
 
 The project uses `.env`-files for configuration. There is the hierarchy on how they get loded:
 
@@ -72,41 +81,7 @@ Dotenv.load(
 )
 ```
 
-### Docker
-
-Install [Docker][8] to your machinae and follow the [verify it][9]. Go to the preferences of Docker under the Advanced panel and add  __docker-prod.fidor.intern:5000__ to the insecure registries list. Now you are ready to go:
-
-```sh
-# You can locally build the image in 2 ways: for sqlserver (default) or mysql
-
-# Read the usage within the script for more info
-$ bin/docker-build
-```
-
 As a rule:
 * The `.env`-file MUST have every basic configuration defined (this is your starting point when wirking with the repository)
 * The `.env.#{Rails.env}`-files SHALL ONLY have environment specific overrides
 * The `.env.local` may have any configuration needed to run locally
-
-### Static Code Analysis
-
-The project features [RubyCritic][6]. If you want to run a codeclimate-esque report, the execute the following:
-
-```sh
-$ bundle exec rubycritic
-```
-
-**TODO**: This may be included when running CI
-
-
-[1]: https://12factor.net
-[2]: http://brew.sh/
-[3]: https://github.com/brigade/overcommit
-[4]: https://github.com/nvie/gitflow
-[5]: https://guides.github.com/introduction/flow/
-[6]: https://github.com/whitesmith/rubycritic
-[7]: https://github.com/bkeepers/dotenv
-[8]: https://docs.docker.com/docker-for-mac/
-[9]: https://docs.docker.com/engine/getstarted/step_one/#/step-3-verify-your-installation
-
-Made with :heart: by Fidor

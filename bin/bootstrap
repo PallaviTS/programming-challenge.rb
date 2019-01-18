@@ -9,13 +9,13 @@ project_name=${project_name:-Microservice}
 echo "=> $project_name"
 
 ##
-# Confirm destructive action
+# Confirm bootstrap action
 while true; do
-  read -p "Type 'yes' to bootstrap this project (Y/n) " bootstrap
+  read -p "Bootstrap this project ? (Y/n) " bootstrap
   bootstrap=${bootstrap:-Y}
   echo "=> $bootstrap"
 
-  case $bootstrap
+  case $bootstrap in
     Y)
       break
       ;;
@@ -49,7 +49,6 @@ git init .
 git add .
 git commit -m "Birthday"
 
-
 ##
 # Setup
 while true; do
@@ -57,7 +56,7 @@ while true; do
   install=${install:-Y}
   echo "=> $install"
 
-  case $install
+  case $install in
     Y)
       bin/setup
       break
