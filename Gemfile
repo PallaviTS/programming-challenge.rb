@@ -5,20 +5,29 @@ source 'https://rubygems.org'
 ruby File.read('.ruby-version').match(/\d\.\d.\d/)[0]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'puma'
+gem 'puma', '3.12.0'
 gem 'rails'
 
-gem 'dotenv-rails'
-gem 'foreman'
-gem 'mysql2'
+gem 'dotenv-rails', '2.6.0'
+gem 'foreman', '0.85.0'
+# Use postgresql as the database for Active Record
+gem 'pg', '>= 0.18', '< 2.0'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder'
+gem 'jbuilder', '2.8.0'
 
 group :development, :test do
-  gem 'byebug'
-  gem 'rspec-rails'
+  gem 'pry', '0.12.2'
+  gem 'rspec-rails', '3.8.2'
 end
+
+group :test do
+  gem 'factory_bot_rails', '5.0.0'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'faker'
+  gem 'database_cleaner'
+end
+
 
 group :development do
   gem 'listen', '~> 3.0.5'

@@ -51,15 +51,16 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     builder (3.2.3)
-    byebug (10.0.2)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     codeclimate-engine-rb (0.4.1)
       virtus (~> 1.0)
+    coderay (1.1.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
+    database_cleaner (1.7.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.3)
@@ -70,6 +71,13 @@ GEM
     equalizer (0.0.11)
     erubi (1.8.0)
     erubis (2.7.0)
+    factory_bot (5.0.0)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.0.0)
+      factory_bot (~> 5.0.0)
+      railties (>= 4.2.0)
+    faker (1.9.3)
+      i18n (>= 0.7)
     ffi (1.10.0)
     flay (2.12.0)
       erubis (~> 2.7.0)
@@ -110,7 +118,6 @@ GEM
     mini_portile2 (2.4.0)
     minitest (5.11.3)
     multi_json (1.13.1)
-    mysql2 (0.5.2)
     nio4r (2.3.1)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
@@ -121,7 +128,11 @@ GEM
     parser (2.5.3.0)
       ast (~> 2.4.0)
     path_expander (1.0.3)
+    pg (1.1.4)
     powerpack (0.1.2)
+    pry (0.12.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
     public_suffix (3.0.3)
     puma (3.12.0)
     rack (2.0.6)
@@ -199,6 +210,8 @@ GEM
       tty-which (~> 0.3.0)
       virtus (~> 1.0)
     sexp_processor (4.11.0)
+    shoulda-matchers (3.1.3)
+      activesupport (>= 4.0.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -230,23 +243,27 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug
-  dotenv-rails
-  foreman
-  jbuilder
+  database_cleaner
+  dotenv-rails (= 2.6.0)
+  factory_bot_rails (= 5.0.0)
+  faker
+  foreman (= 0.85.0)
+  jbuilder (= 2.8.0)
   listen (~> 3.0.5)
-  mysql2
   overcommit
-  puma
+  pg (>= 0.18, < 2.0)
+  pry (= 0.12.2)
+  puma (= 3.12.0)
   rails
-  rspec-rails
+  rspec-rails (= 3.8.2)
   rubocop
   rubycritic
+  shoulda-matchers (~> 3.1)
   spring
   spring-watcher-listen
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.5.1p57
 
 BUNDLED WITH
-   1.14.6
+   2.0.1
