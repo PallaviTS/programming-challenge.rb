@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ItemsController < ApplicationController
   before_action :set_todo
-  before_action :set_todo_item, only: [:show, :update, :destroy]
+  before_action :set_todo_item, only: %i[show update destroy]
 
   def index
     json_response(@todo.items)
@@ -22,7 +24,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy!
-    json_response({ message: 'Deleted' })
+    json_response(message: 'Deleted')
   end
 
   private

@@ -4,9 +4,9 @@ source 'https://rubygems.org'
 
 ruby File.read('.ruby-version').match(/\d\.\d.\d/)[0]
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'puma', '3.12.0'
-gem 'rails'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.2.2'
 
 gem 'dotenv-rails', '2.6.0'
 gem 'foreman', '0.85.0'
@@ -24,13 +24,12 @@ group :development, :test do
 end
 
 group :test do
+  gem 'database_cleaner', '1.7.0'
   gem 'factory_bot_rails', '5.0.0'
-  gem 'shoulda-matchers', '~> 3.1'
-  gem 'faker'
-  gem 'database_cleaner'
+  gem 'faker', '1.9.3'
   gem 'json-schema', '2.8.1'
+  gem 'shoulda-matchers', '~> 3.1'
 end
-
 
 group :development do
   gem 'listen', '~> 3.0.5'

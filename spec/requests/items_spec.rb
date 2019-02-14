@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-describe 'Todos Item API' do
+describe 'Item API' do
   let!(:todo) { create(:todo) }
   let!(:items) { create_list(:item, 10, todo_id: todo.id) }
   let(:todo_id) { todo.id }
@@ -118,18 +120,18 @@ describe 'Todos Item API' do
   describe 'GET /todos/:todo_id/items/:id' do
     before { get "/todos/#{todo_id}/items/#{id}" }
 
-    it "matches Item schema" do
+    it 'matches Item schema' do
       expect(response.status).to eq 200
-      expect(response).to match_response_schema("item")
+      expect(response).to match_response_schema('item')
     end
   end
 
   describe 'GET /todos/:todo_id/items' do
     before { get "/todos/#{todo_id}/items" }
 
-    it "matches Item schema" do
+    it 'matches Item schema' do
       expect(response.status).to eq 200
-      expect(response).to match_response_schema("items")
+      expect(response).to match_response_schema('items')
     end
   end
 end

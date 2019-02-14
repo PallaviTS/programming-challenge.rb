@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'Todos API' do
@@ -100,18 +102,18 @@ describe 'Todos API' do
   describe 'GET /todos/:todo_id' do
     before { get "/todos/#{todo_id}" }
 
-    it "matches Item schema" do
+    it 'matches Item schema' do
       expect(response.status).to eq 200
-      expect(response).to match_response_schema("todo")
+      expect(response).to match_response_schema('todo')
     end
   end
 
   describe 'GET /todos' do
-    before { get "/todos" }
+    before { get '/todos' }
 
-    it "matches Todos schema" do
+    it 'matches Todos schema' do
       expect(response.status).to eq 200
-      expect(response).to match_response_schema("todos")
+      expect(response).to match_response_schema('todos')
     end
   end
 end

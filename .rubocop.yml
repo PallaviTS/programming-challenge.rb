@@ -3,3 +3,5 @@ AllCops:
     - '.git-hooks/**/*'
     - 'bin/*'
     - 'db/schema.rb'
+Documentation:
+  Enabled: false

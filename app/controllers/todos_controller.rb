@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :update, :destroy]
+  before_action :set_todo, only: %i[show update destroy]
 
   # GET /todos
   def index
@@ -27,7 +29,7 @@ class TodosController < ApplicationController
   # DELETE /todos/:id
   def destroy
     @todo.destroy!
-    json_response({ message: 'Deleted' })
+    json_response(message: 'Deleted')
   end
 
   private
