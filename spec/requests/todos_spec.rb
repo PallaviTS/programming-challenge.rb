@@ -80,11 +80,11 @@ describe 'Todos API' do
       before { put "/todos/#{todo_id}", params: valid_attributes }
 
       it 'updates the record' do
-        expect(response.body).to be_empty
+        expect(json['title']).to eq('Shopping')
       end
 
-      it 'returns status code 204' do
-        expect(response).to have_http_status(204)
+      it 'returns status code 200' do
+        expect(response).to have_http_status(200)
       end
     end
   end
@@ -92,8 +92,26 @@ describe 'Todos API' do
   describe 'DELETE /todos/:id' do
     before { delete "/todos/#{todo_id}" }
 
-    it 'returns status code 204' do
-      expect(response).to have_http_status(204)
+    it 'returns status code 200' do
+      expect(response).to have_http_status(200)
+    end
+  end
+
+  describe 'GET /todos/:todo_id' do
+    before { get "/todos/#{todo_id}" }
+
+    it "matches Item schema" do
+      expect(response.status).to eq 200
+      expect(response).to match_response_schema("todo")
+    end
+  end
+
+  describe 'GET /todos' do
+    before { get "/todos" }
+
+    it "matches Todos schema" do
+      expect(response.status).to eq 200
+      expect(response).to match_response_schema("todos")
     end
   end
 end

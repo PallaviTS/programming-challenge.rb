@@ -16,6 +16,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '2.8.0'
 
+gem 'active_model_serializers', '0.10.9'
+
 group :development, :test do
   gem 'pry', '0.12.2'
   gem 'rspec-rails', '3.8.2'
@@ -26,6 +28,7 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'faker'
   gem 'database_cleaner'
+  gem 'json-schema', '2.8.1'
 end
 
 

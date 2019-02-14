@@ -1,7 +1,4 @@
 class TodosController < ApplicationController
-  include Response
-  include ExceptionHandler
-
   before_action :set_todo, only: [:show, :update, :destroy]
 
   # GET /todos
@@ -23,20 +20,20 @@ class TodosController < ApplicationController
 
   # PUT /todos/:id
   def update
-    @todo.update(todo_params)
-    head :no_content
+    @todo.update!(todo_params)
+    json_response(@todo)
   end
 
   # DELETE /todos/:id
   def destroy
-    @todo.destroy
-    head :no_content
+    @todo.destroy!
+    json_response({ message: 'Deleted' })
   end
 
   private
 
   def todo_params
-    params.permit(:title)
+    params.permit(:title, :read)
   end
 
   def set_todo

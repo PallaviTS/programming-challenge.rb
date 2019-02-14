@@ -24,6 +24,11 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_model_serializers (0.10.9)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      case_transform (>= 0.2)
+      jsonapi-renderer (>= 0.1.1.beta1, < 0.3)
     activejob (5.2.2)
       activesupport (= 5.2.2)
       globalid (>= 0.3.6)
@@ -51,6 +56,8 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     builder (3.2.3)
+    case_transform (0.2)
+      activesupport
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     codeclimate-engine-rb (0.4.1)
@@ -100,6 +107,9 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    json-schema (2.8.1)
+      addressable (>= 2.4)
+    jsonapi-renderer (0.2.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.0.8)
@@ -243,12 +253,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers (= 0.10.9)
   database_cleaner
   dotenv-rails (= 2.6.0)
   factory_bot_rails (= 5.0.0)
   faker
   foreman (= 0.85.0)
   jbuilder (= 2.8.0)
+  json-schema (= 2.8.1)
   listen (~> 3.0.5)
   overcommit
   pg (>= 0.18, < 2.0)
